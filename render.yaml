@@ -2,14 +2,14 @@ services:
     - type: web
       name: demerzel
       runtime: docker
-      plan: starter
+      plan: standard
       healthCheckPath: /health
       dockerCommand: node openclaw.mjs gateway --allow-unconfigured --bind lan
       envVars:
           - key: PORT
             value: "8080"
           - key: NODE_OPTIONS
-            value: "--max-old-space-size=384"
+            value: "--max-old-space-size=1536"
           - key: SETUP_PASSWORD
             sync: false
           - key: OPENCLAW_STATE_DIR
